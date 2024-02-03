@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductComponent } from './component/product/product.component';
-import { ProductTableComponent } from './component/productTable/product-table.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { PricecalculatorComponent } from './component/pricecalculator/pricecalculator.component';
+import { PricetableComponent } from './component/pricetable/pricetable.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'price_engine', component: ProductComponent },
-  { path: 'price_table', component: ProductTableComponent },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'price-table', component: PricetableComponent },
+  { path: 'price-calculator', component: PricecalculatorComponent },
 ];
 
 @NgModule({

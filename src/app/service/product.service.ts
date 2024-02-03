@@ -1,18 +1,22 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ApiResponse, PriceDTO } from '../component/dto/PriceDTO';
 
-const apiUrl = 'http://localhost:9191/api/v1/product/item/1';
-// const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  private http = inject(HttpClient);
-
-  constructor() {}
-  getProducts() {
-    return this.http.get(apiUrl);
+  apiurl = 'http://localhost:9191/api/v1/product/item/1';
+  constructor(private http: HttpClient) {}
+  
+  getAllProductPrices(): Observable<ApiResponse<PriceDTO[]>> {
+    return this.http.get<ApiResponse<PriceDTO[]>>(`${this.apiurl}`);
   }
+
+  // createProduct(product: IEmployee): Observable<any> {
+  //   return this.http.post(`${this.apiurl}`, employee);
+  // }
 }
 
 // getDataById(id: string): Observable<ApiResponse<PriceDTO[]>> {
