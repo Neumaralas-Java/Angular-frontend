@@ -1,14 +1,29 @@
-<form class="row g-3">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Information</title>
+</head>
+
+<!-- <form class="row g-3">
     <div class="col-auto">
-        <label for="inputPassword2" class="visually-hidden">Password</label>
-        <input type="password" class="form-control" id="inputPassword2" placeholder="Product ID">
+        <input type="number" size="" class="form-control" id="inputProductId" placeholder="Product ID" min="1" max="2"
+            required>
     </div>
     <div class="col-auto">
-        <button type="submit" class="btn btn-primary mb-3">Confirm</button>
+        <button type="submit" class="btn btn-primary mb-3" style="color: red;" (click)="getData()">Confirm</button>
     </div>
+</form> -->
+
+<form (ngSubmit)="getData(id.value)">
+    <label for="id">Enter an ID:</label>
+    <input type="number" id="id" #id required />
+    <button type="submit">Submit</button>
 </form>
+
 <div>
-    <h2>Data for ID</h2>
+
     <table>
         <thead>
             <tr>
@@ -17,13 +32,13 @@
             </tr>
         </thead>
         <tbody>
-            @for(price of productPrices; track price.id){
+            @for(priceList of priceList; track priceList.id){
             <tr>
                 <th>
-                    {{price.units}}
+                    {{priceList.units}}
                 </th>
                 <td>
-                    {{price.price}}
+                    {{priceList.price}}
                 </td>
             </tr>
             }

@@ -1,1 +1,35 @@
-<p>addproduct works!</p>
+<h5 class="mb-5 text-lg font-bold tracking-tight text-gray-900 dark:text-white ">Employee Details</h5>
+<form [formGroup]="productForm" class="w-full" (ngSubmit)="onSubmit()" novalidate>
+    <div class="mb-5">
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
+        <input type="text" id="name" class="form-control" placeholder="Product Name" formControlName="name">
+        @if (productForm.get('productName')?.hasError('required') && productForm.get('productName')?.touched) {
+        <div class="form-error">Product name is required</div>
+        }
+    </div>
+    <div class="mb-5">
+        <label for="number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quantity</label>
+        <input type="number" id="number" class="form-control" placeholder="Quantity" formControlName="quantity">
+        @if (productForm.get('quantity')?.hasError('required') && productForm.get('quantity')?.touched) {
+        <div class="form-error">Quantity is required</div>
+        }
+    </div>
+    <div class="mb-5">
+        <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cart Price</label>
+        <input type="number" id="cartPrice" class="form-control" placeholder="cartPrice" formControlName="cartPrice">
+        @if (productForm.get('cartPrice')?.hasError('required') && productForm.get('cartPrice')?.touched) {
+        <div class="form-error">Cart Price is required</div>
+        }
+    </div>
+    <div class="mb-5">
+        <label for="number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Discount</label>
+        <input type="number" id="discount" class="form-control" placeholder="discount" formControlName="discount">
+        @if (productForm.get('dob')?.hasError('required') && productForm.get('dob')?.touched) {
+        <div class="form-error">Enter discount</div>
+        }
+    </div>
+    <button type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+    <button type="button" (click)="onClose()"
+        class="text-white  ms-2 bg-gray-700 hover:bg-gray-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Cancel</button>
+</form>
